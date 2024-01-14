@@ -1,0 +1,19 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+model Todo {
+  id         String   @id @default(uuid()) // Use UUID as the id
+  name       String
+  completed  Boolean  @default(false)
+  created_at DateTime @default(now()) // Added created_at field with a default value of the current timestamp
+}
