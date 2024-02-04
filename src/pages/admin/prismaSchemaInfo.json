@@ -1,0 +1,162 @@
+[
+  {
+    "modelName": "Todo",
+    "typeInfo": [
+      {
+        "name": "id",
+        "type": "String",
+        "note": "@id",
+        "typescriptType": "string"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "typescriptType": "string"
+      },
+      {
+        "name": "completed",
+        "type": "Boolean",
+        "note": "@default(false)",
+        "typescriptType": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "DateTime",
+        "note": "@default(now())",
+        "typescriptType": "Date"
+      }
+    ]
+  },
+  {
+    "modelName": "User",
+    "typeInfo": [
+      {
+        "name": "id",
+        "type": "Int",
+        "note": "@id",
+        "typescriptType": "number"
+      },
+      {
+        "name": "username",
+        "type": "String",
+        "note": "@unique",
+        "typescriptType": "string"
+      },
+      {
+        "name": "posts",
+        "type": "Post[]",
+        "typescriptType": "Post[]"
+      },
+      {
+        "name": "comments",
+        "type": "Comment[]",
+        "typescriptType": "Comment[]"
+      }
+    ]
+  },
+  {
+    "modelName": "Post",
+    "typeInfo": [
+      {
+        "name": "id",
+        "type": "Int",
+        "note": "@id",
+        "typescriptType": "number"
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "typescriptType": "string"
+      },
+      {
+        "name": "content",
+        "type": "String",
+        "typescriptType": "string"
+      },
+      {
+        "name": "published",
+        "type": "Boolean",
+        "note": "@default(false)",
+        "typescriptType": "boolean"
+      },
+      {
+        "name": "createdAt",
+        "type": "DateTime",
+        "note": "@default(now())",
+        "typescriptType": "Date"
+      },
+      {
+        "name": "updatedAt",
+        "type": "DateTime",
+        "note": "@updatedAt",
+        "typescriptType": "Date"
+      },
+      {
+        "name": "authorId",
+        "type": "Int",
+        "typescriptType": "number"
+      },
+      {
+        "name": "author",
+        "type": "User",
+        "note": "@relation(fields:",
+        "typescriptType": "User"
+      },
+      {
+        "name": "comments",
+        "type": "Comment[]",
+        "typescriptType": "Comment[]"
+      }
+    ]
+  },
+  {
+    "modelName": "Comment",
+    "typeInfo": [
+      {
+        "name": "id",
+        "type": "Int",
+        "note": "@id",
+        "typescriptType": "number"
+      },
+      {
+        "name": "content",
+        "type": "String",
+        "typescriptType": "string"
+      },
+      {
+        "name": "createdAt",
+        "type": "DateTime",
+        "note": "@default(now())",
+        "typescriptType": "Date"
+      },
+      {
+        "name": "updatedAt",
+        "type": "DateTime",
+        "note": "@updatedAt",
+        "typescriptType": "Date"
+      },
+      {
+        "name": "userId",
+        "type": "Int",
+        "typescriptType": "number"
+      },
+      {
+        "name": "postId",
+        "type": "Int",
+        "typescriptType": "number"
+      },
+      {
+        "name": "user",
+        "type": "User",
+        "note": "@relation(fields:",
+        "typescriptType": "User"
+      },
+      {
+        "name": "post",
+        "type": "Post",
+        "note": "@relation(fields:",
+        "typescriptType": "Post"
+      }
+    ]
+  }
+]
